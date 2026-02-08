@@ -172,7 +172,7 @@
 
   <style>
     /* Hamburger */
-    .hamburger{ display:none; background:transparent; border:0; padding:10px; cursor:pointer; }
+    .hamburger{ display:none; background:transparent; border:0; padding:10px; cursor:pointer; z-index:100; position:relative; }
     .hamburger span{ display:block; width:26px; height:2px; background:#FFFFFF; border-radius:2px; }
     .hamburger span + span{ margin-top:6px; }
 
@@ -235,9 +235,8 @@
     /* Mobile nav swap */
     @media (max-width: 700px){
       nav ul{ display:none; }
-      .hamburger{ display:inline-block; }
-      header.site-nav{ position:fixed; } /* keep reachable */
-      section#hero{ padding-top:64px; } /* avoid header overlap */
+      .hamburger{ display:none; } /* hamburger disabled on index page */
+      .nav-inner{ position:relative; }
     }
   </style>
 
@@ -371,15 +370,14 @@
     <div class="container footer-line">
       <span class="footer-item">© 2026 Out of Office</span>
       <span class="sep">·</span>
-      <span class="footer-item"><a href="/cdn-cgi/l/email-protection#733c06073c153c15151a1016211c10180033141e121a1f5d101c1e" style="color:#FFFFFF"><span class="__cf_email__" data-cfemail="743b01003b123b12121d1711261b171f07341319151d185a171b19">[email&#160;protected]</span></a></span>
+      <span class="footer-item"><a href="mailto:OutOfOfficeRocks@gmail.com" style="color:#FFFFFF">OutOfOfficeRocks@gmail.com</a></span>
       <span class="sep">·</span>
       <span class="footer-item" style="color:#FFFFFF">@OutOfOfficeRocks</span>
     </div>
   </footer>
 
 
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/json" id="events-json">
+  <script type="application/json" id="events-json">
   [
     { "dateISO": "2026-01-30", "dateLabel": "Jan 30, 2026", "title": "Le Banc", "city": "Los Altos, CA" },
     { "dateISO": "2025-06-06", "dateLabel": "Jun 6, 2025", "title": "Le Banc", "note": "First Friday!", "city": "Los Altos, CA" },
@@ -634,6 +632,7 @@
 
 
   <script>
+  <script>
     (function(){
       var btn = document.querySelector('.hamburger');
       var menu = document.getElementById('mobileMenu');
@@ -657,4 +656,14 @@
       document.addEventListener('click', function(e){
         if (!menu.contains(e.target) && e.target !== btn) close();
       });
-      Array.prototype.slice.call(menu.querySelectorAll('a')).forEach(fu
+      Array.prototype.slice.call(menu.querySelectorAll('a')).forEach(function(a){
+        a.addEventListener('click', close);
+      });
+      window.addEventListener('resize', function(){
+        if (window.matchMedia && window.matchMedia('(min-width: 701px)').matches) close();
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -13,6 +13,9 @@
     img{max-width:100%;display:block}
     .container{max-width:1200px;margin:0 auto;padding:24px}
     header{position:sticky;top:0;background:#000000;backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,.08);z-index:20}
+    @media (max-width: 900px){
+      header{position:relative}
+    }
     header .row{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
     header .brand{display:flex;align-items:center;gap:12px}
     header .brand img{width:55px;height:auto;border-radius:8px}
@@ -63,7 +66,7 @@
 
   <style>
     /* Hamburger (Meet page) */
-    .hamburger{ display:none; background:transparent; border:0; padding:10px; cursor:pointer; }
+    .hamburger{ display:none; background:transparent; border:0; padding:10px; cursor:pointer; z-index:100; position:relative; }
     .hamburger span{ display:block; width:26px; height:2px; background:#FFFFFF; border-radius:2px; }
     .hamburger span + span{ margin-top:6px; }
 
@@ -99,7 +102,6 @@
     }
 
     @media (max-width: 700px){
-      header .row{ position:relative; }
       header nav{ display:none; }
       .hamburger{ display:inline-block; }
     }
@@ -115,6 +117,7 @@
         grid-template-rows: auto auto;
         align-items:center;
         gap:12px;
+        position:relative;
       }
       header .brand{
         grid-column:1 / 2;
@@ -141,23 +144,22 @@
   <header>
     <div class="row container">
       <div class="brand">
-        <a href="Current-Build-Main.html#hero"><img src="assets/logo.png" alt="Out of Office logo" /></a>
+        <a href="index.html#hero"><img src="assets/logo.png" alt="Out of Office logo" /></a>
       </div>
       
       <button class="hamburger meet-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="meetMobileMenu">
         <span></span><span></span><span></span>
       </button>
       <div id="meetMobileMenu" class="mobile-menu meet-mobile-menu" aria-hidden="true">
-        <a href="Current-Build-Main.html#hero">Home</a>
-        <a href="Current-Build-Main.html#events">Events</a>
-        <a href="Current-Build-Main.html#about">About</a>
-        <a href="Current-Build-Main.html#contact">Contact</a>
-        <a href="Current-Build-Main.html#contact">Book Us</a>
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#events">Events</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
       </div>
 
       <div style="display:flex;gap:10px;align-items:center">
 
-        <a class="btn" href="Current-Build-Main.html#contact">Book Us</a>
+        <a class="btn" href="index.html#contact">Book Us</a>
       </div>
     </div>
   </header>
@@ -181,7 +183,7 @@
           <div class="info">
             <div class="name">Bill D</div>
             <div class="roles">Bass, Vocals</div>
-            <p class="bio">Bill once played so deep in the pocket NASA registered it as a gravity well.</p>
+            <p class="bio">Bill once played so deep in the pocket, unpaid interns at NASA registered it as a gravity well.</p>
           </div>
         </article>
         <!-- Shane B -->
@@ -217,7 +219,6 @@
       <span class="footer-item" style="color:#FFFFFF">@OutOfOfficeRocks</span>
     </div>
   </footer>
-
 
 
 
